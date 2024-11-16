@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarjeta de Cumpleaños</title>
+  <style>
+    /* Estilos básicos para la página */
+    body {
+      background-color: #fef2e4;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      color: #333;
+      padding: 20px;
+      margin: 0;
+    }
+
+    h1 {
+      color: #ff6f61;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.6;
+      margin: 10px 20px;
+    }
+
+    .text-container {
+      background-color: #fff9f5;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px auto;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    img {
+      margin: 20px auto;
+      display: block;
+      width: 200px;
+      height: auto;
+      animation: bounce 2s infinite;
+    }
+
+    button {
+      background-color: #ff6f61;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ff8566;
+    }
+
+    /* Estilos personalizados para la barra de progreso */
+    .audio-bar-container {
+      width: 80%;
+      background-color: #f5f5f5;
+      margin: 20px auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 5px;
+    }
+
+    .audio-bar {
+      width: 0%;
+      height: 8px;
+      background-color: #ff6f61;
+      border-radius: 5px;
+    }
+
+    /* Animación del gatito */
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 ¡Feliz Cumpleaños! 🎂</h1>
+  
+  <!-- Contenedor de texto adicional -->
+  <div class="text-container">
+    <p>Querida Ari:</p>
+    <p>
+      Felicidades por tus 17 años, ¡ya tenemos 2 años de conocernos, increíble jaja! Aprovecho esta mini carta para desearte toda la felicidad del mundo. 
+      Espero que cada momento de tu día esté lleno de amor, risas y recuerdos inolvidables. 🎁
+      No solo hoy, sino toda tu vida, muchas felicidades y te quiero mucho aunque tengamos malos momentos.
+    </p>
+    <p>
+      Espero que este pequeño detalle haga que tu día sea aún más especial. ¡Te lo mereces todo y estoy muy orgulloso de ti! 🌟
+    </p>
+  </div>
+
+  <!-- Imagen animada del gatito con pastel y corazón -->
+  <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2N1ZmFqczBwZnNiMzQ4bzd1YzBvOHJoOGpqN3liYzIwdXAwZmhzayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/4Fn2khYCDyKEBikRbn/giphy.gif" alt="Gatito con pastel y corazón">
+
+  <button id="celebrate">Haz clic para celebrar 🎉</button>
+
+  <!-- Barra de progreso personalizada -->
+  <div class="audio-bar-container">
+    <div id="audio-bar" class="audio-bar"></div>
+  </div>
+
+  <!-- Reproductor de audio desde archivo GitHub (sin controles) -->
+  <audio id="audio">
+    <source src="https://github.com/Juan392/cartaa/raw/adb130c786bf5fa36641261d8a4fe9eca2082de3/las-ma%C3%B1anitas.mp3" type="audio/mp3">
+    Tu navegador no soporta el elemento de audio.
+  </audio>
+
+  <script>
+    // JavaScript para manejar la reproducción del audio y la barra de progreso personalizada
+    const audio = document.getElementById('audio');
+    const audioBar = document.getElementById('audio-bar');
+
+    document.getElementById('celebrate').addEventListener('click', () => {
+      audio.play();
+      alert("¡Felicidades! 🎉 La música ha comenzado.");
+    });
+
+    audio.addEventListener('timeupdate', () => {
+      const progress = (audio.currentTime / audio.duration) * 100;
+      audioBar.style.width = progress + '%';
+    });
+  </script>
+</body>
+</html>
